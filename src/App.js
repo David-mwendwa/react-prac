@@ -1,8 +1,9 @@
+import AddUsers from "./components/Users/AddUsers";
 
 function App() {
   return (
     <div>
-      Practice project
+      <AddUsers />
     </div>
   );
 }
