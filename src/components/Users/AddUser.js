@@ -1,5 +1,6 @@
 import React from 'react'
 import Card from '../UI/Card';
+import Button from '../UI/Button'
 import classes from './AddUser.module.css'
 
 const AddUsers = (props) => {
@@ -14,7 +15,7 @@ const AddUsers = (props) => {
         <input type='text' id='username' />
         <label htmlFor='age'>Age (years)</label>
         <input type='number' id='age' />
-        <button type='submit'>Add User</button>
+        <Button type='submit'>Add User</Button>
       </form>
     </Card>
   );
