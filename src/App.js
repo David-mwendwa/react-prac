@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
-import AddUsers from "./components/Users/AddUser";
-import UsersList from "./components/Users/UsersList";
+import React, { useState } from 'react';
+import AddUsers from './components/Users/AddUser';
+import UsersList from './components/Users/UsersList';
 
 const USERS = [
   { id: 'u1', name: 'David', age: 25 },
@@ -9,10 +9,18 @@ const USERS = [
 ];
 
 function App() {
-  let [users, setUsers] = useState(USERS)
+  let [users, setUsers] = useState(USERS);
+
+  const addUserHandler = (newUser) => {
+    setUsers((prevUsers) => {
+      console.log(prevUsers)
+      return [...prevUsers, newUser];
+    });
+  };
+  
   return (
     <div>
-      <AddUsers />
+      <AddUsers onAddUser={addUserHandler} />
       <UsersList users={users} />
     </div>
   );

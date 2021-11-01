@@ -9,9 +9,10 @@ const AddUsers = (props) => {
 
   const addUserHandler = (event) => {
     event.preventDefault();
-    if (setEnteredUsername.trim().length || enteredAge.trim().length) return
-    if (+enteredAge < 1) return 
-    console.log(enteredAge, enteredUsername);
+    if (!enteredUsername.trim().length || !enteredAge.trim().length) return;
+    if (+enteredAge < 1) return
+    let id = Math.random()
+    props.onAddUser({id, name: enteredUsername, age: enteredAge})
     setEnteredUsername('');
     setEnteredAge('');
   };
