@@ -18,10 +18,10 @@ function App() {
     setUsers(users.filter((user) => user.id !== userId));
 
   return (
-    <div>
+    <React.Fragment>
       <AddUsers onAddUser={addUserHandler} users={users} />
       <UsersList users={users} onDeleteUser={deleteUserHandler} />
-    </div>
+    </React.Fragment>
   );
 }
 
