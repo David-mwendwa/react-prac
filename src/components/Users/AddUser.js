@@ -7,21 +7,24 @@ const AddUsers = (props) => {
   const [enteredUsername, setEnteredUsername] = useState('');
   const [enteredAge, setEnteredAge] = useState('');
 
-  const addUserHandler = (event) => {
-    event.preventDefault();
+  const addUserHandler = (e) => {
+    e.preventDefault();
     if (!enteredUsername.trim().length || !enteredAge.trim().length) return;
-    if (+enteredAge < 1) return
-    let id = Math.random()
-    props.onAddUser({id, name: enteredUsername, age: enteredAge})
+    if (+enteredAge < 1) return;
+    props.onAddUser({
+      id: `u${props.users.length + 1}`,
+      name: enteredUsername,
+      age: enteredAge,
+    });
     setEnteredUsername('');
     setEnteredAge('');
   };
 
-  const usernameChangeHandler = (event) => {
-    setEnteredUsername(event.target.value);
+  const usernameChangeHandler = (e) => {
+    setEnteredUsername(e.target.value);
   };
-  const ageChangeHandler = (event) => {
-    setEnteredAge(event.target.value);
+  const ageChangeHandler = (e) => {
+    setEnteredAge(e.target.value);
   };
 
   return (
