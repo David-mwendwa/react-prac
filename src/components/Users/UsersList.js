@@ -1,10 +1,12 @@
 import React from 'react';
 import Card from '../UI/Card';
-import classes from './UsersList.module.css'
+import classes from './UsersList.module.css';
 
 const UsersList = ({ users, onDeleteUser }) => {
-
-  const deleteUserHandler = (id) => onDeleteUser(id)
+  const deleteUserHandler = (id) => {
+    if (window.confirm('Are you sure you wish to delete this item?'))
+      return onDeleteUser(id);
+  };
 
   return (
     <Card className={classes.users}>
